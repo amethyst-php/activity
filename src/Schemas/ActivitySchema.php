@@ -23,12 +23,12 @@ class ActivitySchema extends Schema
             Attributes\LongTextAttribute::make('description'),
             Attributes\DateTimeAttribute::make('starts_at'),
             Attributes\DateTimeAttribute::make('ends_at'),
-            Attributes\EnumAttribute::make('sourceable_type', array_keys(Config::get('amethyst.activity.data.activity.sourceables')))
+            Attributes\EnumAttribute::make('sourceable_type', array_keys(Config::get('amethyst.activity.data.activity.attributes.sourceable.options')))
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('sourceable_id')
                 ->setRelationKey('sourceable_type')
                 ->setRelationName('sourceable')
-                ->setRelations(Config::get('amethyst.activity.data.activity.sourceables'))
+                ->setRelations(Config::get('amethyst.activity.data.activity.attributes.sourceable.options'))
                 ->setRequired(true),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
