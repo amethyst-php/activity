@@ -15,6 +15,8 @@ class ActivitySchema extends Schema
      */
     public function getAttributes()
     {
+        $sourceableConfig = Config::get('amethyst.activity.data.activity.attributes.sourceable.options');
+
         return [
             Attributes\IdAttribute::make(),
             Attributes\TextAttribute::make('name')
@@ -23,12 +25,12 @@ class ActivitySchema extends Schema
             Attributes\LongTextAttribute::make('description'),
             Attributes\DateTimeAttribute::make('starts_at'),
             Attributes\DateTimeAttribute::make('ends_at'),
-            Attributes\EnumAttribute::make('sourceable_type', array_keys(Config::get('amethyst.activity.data.activity.attributes.sourceable.options')))
+            Attributes\EnumAttribute::make('sourceable_type', array_keys($sourceableConfig))
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('sourceable_id')
                 ->setRelationKey('sourceable_type')
                 ->setRelationName('sourceable')
-                ->setRelations(Config::get('amethyst.activity.data.activity.attributes.sourceable.options'))
+                ->setRelations($sourceableConfig)
                 ->setRequired(true),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
