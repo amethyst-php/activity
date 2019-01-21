@@ -18,6 +18,8 @@ class CreateActivitiesTable extends Migration
             $table->text('description')->nullable();
             $table->datetime('starts_at')->nullable();
             $table->datetime('ends_at')->nullable();
+            $table->string('sourceable_type');
+            $table->integer('sourceable_id');
             $table->timestamps();
             $table->softDeletes();
         });
