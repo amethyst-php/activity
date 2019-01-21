@@ -18,6 +18,8 @@ class ActivityFaker extends Faker
         $bag = new Bag();
         $bag->set('name', $faker->name);
         $bag->set('description', $faker->text);
+        $bag->set('starts_at', (new \DateTime())->format('Y-m-d H:i:s'));
+        $bag->set('ends_at', (new \DateTime())->format('Y-m-d H:i:s'));
 
         return $bag;
     }

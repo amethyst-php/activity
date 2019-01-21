@@ -16,6 +16,8 @@ class CreateActivitiesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('description')->nullable();
+            $table->datetime('starts_at')->nullable();
+            $table->datetime('ends_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

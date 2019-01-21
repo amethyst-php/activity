@@ -20,6 +20,8 @@ class ActivitySchema extends Schema
                 ->setRequired(true)
                 ->setUnique(true),
             Attributes\LongTextAttribute::make('description'),
+            Attributes\DateTimeAttribute::make('starts_at'),
+            Attributes\DateTimeAttribute::make('ends_at'),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),
