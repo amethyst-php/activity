@@ -14,7 +14,7 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create(Config::get('amethyst.activity.data.activity.table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->text('description')->nullable();
             $table->datetime('starts_at')->nullable();
             $table->datetime('ends_at')->nullable();

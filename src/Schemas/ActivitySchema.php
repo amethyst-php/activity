@@ -20,8 +20,7 @@ class ActivitySchema extends Schema
         return [
             Attributes\IdAttribute::make(),
             Attributes\TextAttribute::make('name')
-                ->setRequired(true)
-                ->setUnique(true),
+                ->setRequired(true),
             Attributes\LongTextAttribute::make('description'),
             Attributes\DateTimeAttribute::make('starts_at'),
             Attributes\DateTimeAttribute::make('ends_at'),
