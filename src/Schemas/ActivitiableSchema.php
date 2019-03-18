@@ -5,8 +5,8 @@ namespace Railken\Amethyst\Schemas;
 use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Managers\ActivityManager;
 use Railken\Lem\Attributes;
-use Railken\Lem\Schema;
 use Railken\Lem\Contracts\EntityContract;
+use Railken\Lem\Schema;
 
 class ActivitiableSchema extends Schema
 {

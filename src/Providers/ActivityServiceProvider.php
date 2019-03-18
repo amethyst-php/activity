@@ -6,9 +6,14 @@ use Railken\Amethyst\Common\CommonServiceProvider;
 
 class ActivityServiceProvider extends CommonServiceProvider
 {
+    /**
+     * @inherit
+     */
     public function boot()
-    {   
-    	\Illuminate\Database\Eloquent\Builder::macro('activity', function () {
+    {
+        parent::boot();
+
+        \Illuminate\Database\Eloquent\Builder::macro('activity', function () {
             return $this->getModel()->morphOne(\Railken\Amethyst\Models\Activity::class, 'sourceable');
         });
         \Illuminate\Database\Eloquent\Builder::macro('activities', function () {
