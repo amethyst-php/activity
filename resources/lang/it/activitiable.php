@@ -3,6 +3,5 @@
 return [
     'name' => 'Activitiable',
     'description' => 'Activitiable',
-    'attributes' => [
-    ]
-]
+    'attributes' => []
+];
