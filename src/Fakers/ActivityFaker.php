@@ -20,7 +20,7 @@ class ActivityFaker extends Faker
         $bag->set('description', $faker->text);
         $bag->set('starts_at', (new \DateTime())->format('Y-m-d H:i:s'));
         $bag->set('ends_at', (new \DateTime())->format('Y-m-d H:i:s'));
-        $bag->set('sourceable_type', \Railken\Amethyst\Models\Foo::class);
+        $bag->set('sourceable_type', 'foo');
         $bag->set('sourceable', FooFaker::make()->parameters()->toArray());
 
         return $bag;

@@ -2,7 +2,6 @@
 
 namespace Railken\Amethyst\Schemas;
 
-use Illuminate\Support\Facades\Config;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
 
@@ -15,8 +14,6 @@ class ActivitySchema extends Schema
      */
     public function getAttributes()
     {
-        $sourceableConfig = Config::get('amethyst.activity.data.activity.attributes.sourceable.options');
-
         return [
             Attributes\IdAttribute::make(),
             Attributes\TextAttribute::make('name')
@@ -24,11 +21,11 @@ class ActivitySchema extends Schema
             Attributes\LongTextAttribute::make('description'),
             Attributes\DateTimeAttribute::make('starts_at'),
             Attributes\DateTimeAttribute::make('ends_at'),
-            Attributes\EnumAttribute::make('sourceable_type', array_keys($sourceableConfig)),
+            Attributes\EnumAttribute::make('sourceable_type', app('amethyst')->getMorphListable('activity', 'sourceable')),
             Attributes\MorphToAttribute::make('sourceable_id')
                 ->setRelationKey('sourceable_type')
                 ->setRelationName('sourceable')
-                ->setRelations($sourceableConfig),
+                ->setRelations(app('amethyst')->getMorphRelationable('activity', 'sourceable')),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),

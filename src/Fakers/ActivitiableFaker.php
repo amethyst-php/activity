@@ -18,7 +18,7 @@ class ActivitiableFaker extends Faker
         $bag = new Bag();
         $bag->set('relation', 'default');
         $bag->set('activity', ActivityFaker::make()->parameters()->toArray());
-        $bag->set('activitiable_type', \Railken\Amethyst\Models\Foo::class);
+        $bag->set('activitiable_type', 'foo');
         $bag->set('activitiable', FooFaker::make()->parameters()->toArray());
 
         return $bag;

@@ -2,7 +2,6 @@
 
 namespace Railken\Amethyst\Schemas;
 
-use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Managers\ActivityManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Contracts\EntityContract;
@@ -17,8 +16,6 @@ class ActivitiableSchema extends Schema
      */
     public function getAttributes()
     {
-        $activitiableConfig = Config::get('amethyst.activity.data.activitiable.attributes.activitiable.options');
-
         return [
             Attributes\IdAttribute::make(),
             Attributes\TextAttribute::make('relation')
@@ -29,12 +26,12 @@ class ActivitiableSchema extends Schema
                 ->setRelationName('activity')
                 ->setRelationManager(ActivityManager::class)
                 ->setRequired(true),
-            Attributes\EnumAttribute::make('activitiable_type', array_keys($activitiableConfig))
+            Attributes\EnumAttribute::make('activitiable_type', app('amethyst')->getMorphListable('activitiable', 'activitiable'))
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('activitiable_id')
                 ->setRelationKey('activitiable_type')
                 ->setRelationName('activitiable')
-                ->setRelations($activitiableConfig)
+                ->setRelations(app('amethyst')->getMorphRelationable('activitiable', 'activitiable'))
                 ->setRequired(true),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
