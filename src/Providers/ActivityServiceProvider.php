@@ -15,26 +15,17 @@ class ActivityServiceProvider extends CommonServiceProvider
     {
         parent::boot();
 
+
         \Illuminate\Database\Eloquent\Builder::macro('activity', function (): MorphOne {
-            if (app('amethyst')->validMorphRelation('activity', 'sourceable', $this->getModel()->getMorphName())) {
-                return $this->getModel()->morphOne(\Railken\Amethyst\Models\Activity::class, 'sourceable');
-            }
-
-            unset(static::$macros['activity']);
-
-            return $this->getModel()->activity();
+            return $this->createMacroMorphRelation(\Railken\Amethyst\Models\Activity::class, 'activity', 'sourceable');
         });
+
         \Illuminate\Database\Eloquent\Builder::macro('activities', function (): MorphMany {
-            if (app('amethyst')->validMorphRelation('activities', 'sourceable', $this->getModel()->getMorphName())) {
-                return $this->getModel()->morphMany(\Railken\Amethyst\Models\Activity::class, 'sourceable');
-            }
-
-            unset(static::$macros['activities']);
-
-            return $this->getModel()->activities();
+            return $this->createMacroMorphRelation(\Railken\Amethyst\Models\Activity::class, 'activities', 'sourceable');
         });
+
         \Illuminate\Database\Eloquent\Builder::macro('activitiable', function (): MorphOne {
-            if (app('amethyst')->validMorphRelation('activities', 'activitiable', $this->getModel()->getMorphName())) {
+            if (app('amethyst')->validMorphRelation('activitiable', 'activitiable', $this->getModel()->getMorphName())) {
                 return $this->getModel()->morphOne(\Railken\Amethyst\Models\Activitiable::class, 'activitiable');
             }
 
@@ -43,7 +34,7 @@ class ActivityServiceProvider extends CommonServiceProvider
             return $this->getModel()->activitiable();
         });
         \Illuminate\Database\Eloquent\Builder::macro('activitiables', function (): MorphMany {
-            if (app('amethyst')->validMorphRelation('activities', 'activitiable', $this->getModel()->getMorphName())) {
+            if (app('amethyst')->validMorphRelation('activitiable', 'activitiable', $this->getModel()->getMorphName())) {
                 return $this->getModel()->morphMany(\Railken\Amethyst\Models\Activitiable::class, 'activitiable');
             }
 
