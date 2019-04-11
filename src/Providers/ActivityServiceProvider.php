@@ -15,7 +15,6 @@ class ActivityServiceProvider extends CommonServiceProvider
     {
         parent::boot();
 
-
         \Illuminate\Database\Eloquent\Builder::macro('activity', function (): MorphOne {
             return $this->createMacroMorphRelation(\Railken\Amethyst\Models\Activity::class, 'activity', 'sourceable');
         });
