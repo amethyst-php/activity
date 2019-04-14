@@ -15,11 +15,11 @@ class ActivityServiceProvider extends CommonServiceProvider
         parent::boot();
 
         \Illuminate\Database\Eloquent\Builder::macro('activities', function (): MorphMany {
-            return $this->createMacroMorphRelation(\Railken\Amethyst\Models\Activity::class, 'activities', 'sourceable');
+            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Activity::class, 'activities', 'sourceable');
         });
 
         \Illuminate\Database\Eloquent\Builder::macro('activitiables', function (): MorphMany {
-            return $this->createMacroMorphRelation(\Railken\Amethyst\Models\Activitiable::class, 'activitiables', 'activitiable');
+            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Activitiable::class, 'activitiables', 'activitiable');
         });
     }
 }
