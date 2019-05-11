@@ -29,7 +29,7 @@ class Activitiable extends Model implements EntityContract
      */
     public function activity(): BelongsTo
     {
-        return $this->belongsTo(Activity::class);
+        return $this->belongsTo(config('amethyst.activity.data.activity.model'));
     }
 
     /**
