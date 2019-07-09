@@ -1,10 +1,10 @@
 <?php
 
-namespace Railken\Amethyst\Tests\Managers;
+namespace Amethyst\Tests\Managers;
 
-use Railken\Amethyst\Fakers\ActivitiableFaker;
-use Railken\Amethyst\Managers\ActivitiableManager;
-use Railken\Amethyst\Tests\BaseTest;
+use Amethyst\Fakers\ActivitiableFaker;
+use Amethyst\Managers\ActivitiableManager;
+use Amethyst\Tests\BaseTest;
 use Railken\Lem\Support\Testing\TestableBaseTrait;
 
 class ActivitiableTest extends BaseTest

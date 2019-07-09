@@ -1,8 +1,8 @@
 <?php
 
-namespace Railken\Amethyst\Schemas;
+namespace Amethyst\Schemas;
 
-use Railken\Amethyst\Managers\ActivityManager;
+use Amethyst\Managers\ActivityManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Contracts\EntityContract;
 use Railken\Lem\Schema;
