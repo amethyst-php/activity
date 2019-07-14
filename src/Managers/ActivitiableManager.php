@@ -6,12 +6,12 @@ use Amethyst\Common\ConfigurableManager;
 use Railken\Lem\Manager;
 
 /**
- * @method \Amethyst\Models\Activitiable newEntity()
- * @method \Amethyst\Schemas\ActivitiableSchema getSchema()
+ * @method \Amethyst\Models\Activitiable                 newEntity()
+ * @method \Amethyst\Schemas\ActivitiableSchema          getSchema()
  * @method \Amethyst\Repositories\ActivitiableRepository getRepository()
- * @method \Amethyst\Serializers\ActivitiableSerializer getSerializer()
- * @method \Amethyst\Validators\ActivitiableValidator getValidator()
- * @method \Amethyst\Authorizers\ActivitiableAuthorizer getAuthorizer()
+ * @method \Amethyst\Serializers\ActivitiableSerializer  getSerializer()
+ * @method \Amethyst\Validators\ActivitiableValidator    getValidator()
+ * @method \Amethyst\Authorizers\ActivitiableAuthorizer  getAuthorizer()
  */
 class ActivitiableManager extends Manager
 {
