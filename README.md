@@ -1,6 +1,6 @@
 # amethyst-activity
 
-[![Build Status](https://travis-ci.org/amethyst-php/activity.svg?branch=master)](https://travis-ci.org/amethyst-php/activity)
+[![Action Status](https://github.com/amethyst-php/activity/workflows/test/badge.svg)](https://github.com/amethyst-php/activity/actions)
 
 [Amethyst](https://github.com/amethyst-php/amethyst) package.
 
