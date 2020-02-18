@@ -21,11 +21,11 @@ class ActivitySchema extends Schema
             Attributes\LongTextAttribute::make('description'),
             Attributes\DateTimeAttribute::make('starts_at'),
             Attributes\DateTimeAttribute::make('ends_at'),
-            Attributes\EnumAttribute::make('sourceable_type', app('amethyst')->getMorphListable('activity', 'sourceable')),
+            Attributes\EnumAttribute::make('sourceable_type', app('amethyst')->getDataNames()),
             Attributes\MorphToAttribute::make('sourceable_id')
                 ->setRelationKey('sourceable_type')
                 ->setRelationName('sourceable')
-                ->setRelations(app('amethyst')->getMorphRelationable('activity', 'sourceable')),
+                ->setRelations(app('amethyst')->getDataManagers()),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),
