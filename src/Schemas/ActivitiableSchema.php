@@ -26,7 +26,7 @@ class ActivitiableSchema extends Schema
                 ->setRelationName('activity')
                 ->setRelationManager(ActivityManager::class)
                 ->setRequired(true),
-            Attributes\EnumAttribute::make('activitiable_type', app('amethyst')->getDataNames())
+            \Amethyst\Core\Attributes\DataNameAttribute::make('activitiable_type')
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('activitiable_id')
                 ->setRelationKey('activitiable_type')
